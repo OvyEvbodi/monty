@@ -18,6 +18,12 @@ int main(int argc, char *argv[])
 	bool end_of_file = false;
 	stack_tt *stack = NULL;
 	/*sort the stack variable out*/
+	stack = malloc(sizeof(stack_tt));
+	stack->prev = NULL;
+	stack->n = 10;
+	stack->next = NULL;
+
+	/*del from here up to prev comment*/
 
 	if (argc != 2)
 	{
