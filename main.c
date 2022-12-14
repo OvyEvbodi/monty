@@ -16,6 +16,8 @@ int main(int argc, char *argv[])
 	size_t line_cap = BUFSIZ;
 	FILE *file = NULL;
 	bool end_of_file = false;
+	stack_tt *stack = NULL;
+	/*sort the stack variable out*/
 
 	if (argc != 2)
 	{
@@ -38,6 +40,8 @@ int main(int argc, char *argv[])
 			end_of_file = true;
 		else
 		{
+			/*check opcode*/
+			check_op(&stack, &buffer, current_line);
 			printf(" %d, %s\n", current_line, buffer);
 			current_line++;
 		}
