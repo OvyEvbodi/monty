@@ -25,7 +25,10 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 	int data = 0, i = 0;
 
 	instruction_t ops[] = {
-		{"pop", _pop}
+		{"pop", _pop},
+		{"pall", _pall},
+		{"pint", _pint},
+		{NULL, NULL}
 	};
 
 	if (strcmp(opcode_str, "push") == 0)
@@ -46,10 +49,8 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 		printf("from push func, data var -> %d", data);
 	}
 	for (; ops[i].opcode; i++)
-	{
 		if (!strcmp(opcode_str, ops[i].opcode))
 			ops[i].f(stack, line_number);
-	}
 	/*free buffer right before any exit point!! 
 	this is just a reminder, nothing to free here..
 	e.g: stack overflow and underflow

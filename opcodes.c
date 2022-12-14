@@ -28,13 +28,14 @@ void _pop(stack_tt **stack, unsigned int line_number)
 		*stack = (*stack)->next;
 		free(temp);
 	}
-	fclose(file);
 }
 
 /**
  * _push - pushes a new node on to the stack
  * @stack: a pointer to the top of the stack
  * @data: the data to be pushed on to the stack
+ *
+ * Return: void
 */
 void _push(stack_tt **stack, int data)
 {
@@ -56,5 +57,38 @@ void _push(stack_tt **stack, int data)
 		(*stack)->prev = new;
 		*stack = new;
 	}
-	fclose(file);
+}
+
+/**
+ * _pall - prints all the elements on a stack
+ * @line_number: the current line number
+ * @stack:a pointer to the top of the stack
+ *
+ * Return: void
+*/
+
+void _pall(stack_tt **stack, unsigned int line_number)
+{
+	stack_tt *temp;
+	
+	(void)line_number;
+	printf("testing pall\n");
+	temp = *stack;
+	while (temp)
+	{
+		printf("%d\n", temp->n);
+		temp = temp->next;
+	}
+}
+
+void _pint(stack_tt **stack, unsigned int line_number)
+{
+	if (!*stack)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty", line_number);
+		fclose(file);
+		/*how to free buffer??*/
+		exit(EXIT_FAILURE);
+	}
+		printf("%d\n", (*stack)->n);
 }

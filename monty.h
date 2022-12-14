@@ -45,6 +45,8 @@ typedef struct instruction_s
 
 int check_op(stack_tt **stack, char **buffer, int line_number);
 void _pop(stack_tt **stack, unsigned int line_number);
+void _pall(stack_tt **stack, unsigned int line_number);
+void _pint(stack_tt **stack, unsigned int line_number);
 void _push(stack_tt **stack, int data);
 
 #endif /*MONTY_H*/
