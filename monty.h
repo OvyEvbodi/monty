@@ -10,7 +10,8 @@
 #include <unistd.h>
 #include <sys/stat.h>
 
-extern char *opcode_str;
+extern FILE *file;
+FILE *file;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -44,5 +45,6 @@ typedef struct instruction_s
 
 int check_op(stack_tt **stack, char **buffer, int line_number);
 void _pop(stack_tt **stack, unsigned int line_number);
+void _push(stack_tt **stack, int data);
 
 #endif /*MONTY_H*/
