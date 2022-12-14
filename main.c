@@ -12,15 +12,40 @@
 int main(int argc, char *argv[])
 {
 	int current_line = 1;
+	char *buffer = NULL;
+	size_t line_cap = BUFSIZ;
+	FILE *file = NULL;
+	bool end_of_file = false;
 
 	if (argc != 2)
 	{
-		perror("Error: Can't open file ");
+		fprintf(stderr, "USAGE: monty file\n");
 		/*fix err msg*/
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
+	file = fopen(argv[1], "r");
+
+	if (!file)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+
+
+	do {
+		if (getline(&buffer, &line_cap, file) == -1)
+			end_of_file = true;
+		else
+		{
+			printf(" %d, %s\n", current_line, buffer);
+			current_line++;
+		}
+
+	} while (!end_of_file);
+	current_line--;
 	printf("so far so good, %d, %s\n", current_line, argv[1]);
 
-
+	fclose(file);
 	return (0);
 }
