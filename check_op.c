@@ -31,6 +31,7 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n",
 			line_number);
+			free_stack(stack);
 			EXITFUNC;
 		}
 		data = atoi(char_data);

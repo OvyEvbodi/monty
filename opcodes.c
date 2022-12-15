@@ -15,6 +15,7 @@ void _pop(stack_tt **stack, unsigned int line_number)
 	if (!*stack)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		free_stack(stack);
 		EXITFUNC;
 	}
 	else
@@ -75,6 +76,7 @@ void _pint(stack_tt **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n",
 		line_number);
+		free_stack(stack);
 		EXITFUNC;
 	}
 	printf("%d\n", (*stack)->n);
@@ -97,6 +99,7 @@ void _add(stack_tt **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n",
 		line_number);
+		free_stack(stack);
 		EXITFUNC;
 	}
 	temp = *stack;
@@ -122,6 +125,7 @@ void _mul(stack_tt **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: can't mul, stack too short\n",
 		line_number);
+		free_stack(stack);
 		EXITFUNC;
 	}
 	temp = (*stack)->next;

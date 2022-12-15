@@ -10,7 +10,7 @@
 #include <unistd.h>
 #include <sys/stat.h>
 
-#define DELIM " \n"
+#define DELIM " \n\t"
 #define BUFFER glob_var.buffer
 #define MYFILE glob_var.file
 
@@ -25,7 +25,7 @@ instruction_t ops[] = {                                               \
 #define EXITFUNC                                                      \
 fclose(MYFILE);                                                       \
 free(BUFFER);                                                         \
-/*BUFFER = NULL;                                                    */\
+BUFFER = NULL;                                                        \
 exit(EXIT_FAILURE)                                                    \
 
 typedef struct glob_v
@@ -68,6 +68,7 @@ typedef struct instruction_s
 } instruction_t;
 
 int check_op(stack_tt **stack, char **buffer, int line_number);
+
 void _pop(stack_tt **stack, unsigned int line_number);
 void _pall(stack_tt **stack, unsigned int line_number);
 void _pint(stack_tt **stack, unsigned int line_number);
@@ -78,7 +79,8 @@ void _sub(stack_tt **stack, unsigned int line_number);
 void _div(stack_tt **stack, unsigned int line_number);
 void _mul(stack_tt **stack, unsigned int line_number);
 void _mod(stack_tt **stack, unsigned int line_number);
+
 void _push(stack_tt **stack, int data);
-int _atoi(char *s);
+void free_stack(stack_tt **stack);
 
 #endif /*MONTY_H*/

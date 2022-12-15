@@ -29,6 +29,7 @@ void _swap(stack_tt **stack, unsigned int line_number)
 	if (!*stack || (!(*stack)->next))
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		free_stack(stack);
 		EXITFUNC;
 	}
 	temp1 = *stack;
@@ -78,6 +79,7 @@ void _sub(stack_tt **stack, unsigned int line_number)
 	if (!*stack || !(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		free_stack(stack);
 		EXITFUNC;
 	}
 	temp = (*stack)->next;
@@ -103,6 +105,7 @@ void _div(stack_tt **stack, unsigned int line_number)
 	if (!*stack || !(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		free_stack(stack);
 		EXITFUNC;
 	}
 	temp = (*stack)->next;
@@ -110,6 +113,7 @@ void _div(stack_tt **stack, unsigned int line_number)
 	if (temp->prev->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
+		free_stack(stack);
 		EXITFUNC;
 	}
 	result /= temp->prev->n;
