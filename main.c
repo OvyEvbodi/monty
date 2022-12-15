@@ -15,7 +15,6 @@ int main(int argc, char *argv[])
 	int current_line = 1;
 	char *buffer = NULL;
 	size_t line_cap = BUFSIZ;
-	
 	bool end_of_file = false;
 	stack_tt *stack = NULL;
 
@@ -40,9 +39,7 @@ int main(int argc, char *argv[])
 		{
 			/*check opcode*/
 			check_op(&stack, &buffer, current_line);
-			printf(" %d, %s\n", current_line, buffer);
 			current_line++;
-	
 		}
 	free(buffer);
 	buffer = NULL;

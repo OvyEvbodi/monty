@@ -21,7 +21,7 @@ void _pop(stack_tt **stack, unsigned int line_number)
 
 	else
 	{
-		printf("data -> %d\n", (*stack)->n);
+		/*printf("data -> %d\n", (*stack)->n);*/
 		temp = *stack;
 		if ((*stack)->next)
 			(*stack)->next->prev = NULL;
@@ -98,7 +98,7 @@ void _add(stack_tt **stack, unsigned int line_number)
 	ssize_t result = 0;
 	short i = 0;
 
-	if (!(*stack)->next || !*stack)
+	if (!*stack || !(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short", line_number);
 		exit(EXIT_FAILURE);

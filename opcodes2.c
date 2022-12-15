@@ -73,23 +73,27 @@ void _pall(stack_tt **stack, unsigned int line_number)
 
 void _sub(stack_tt **stack, unsigned int line_number)
 {
-	stack_tt *temp = (*stack)->next;
-	ssize_t result = temp->n;
+	stack_tt *temp = NULL;
+	ssize_t result = 0, i = 0;
 
-	if (!(*stack)->next || !*stack)
+	if (!*stack || !(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short", line_number);
 		exit(EXIT_FAILURE);
 	}
-	/*for (; i < 2; i++)
+	temp = (*stack)->next;
+	result = temp->n;
+	for (; i < 2; i++)
 	{
 		temp = temp->prev;
 		result -= temp->n;
 	}
 	temp = temp->next;
-	temp->n = result;*/
-	/*updgrade*/
-	result -= temp->prev->n;
 	temp->n = result;
+	/*updgrade*/
+	/*temp = (*stack)->next;
+	result = temp->n;
+	result -= temp->prev->n;
+	temp->n = result;*/
 	_pop(stack, line_number);
 }

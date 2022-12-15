@@ -21,7 +21,7 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 	else, print err msg
 
 	*/
-	char *opcode_str = strtok(*buffer, " ");
+	char *opcode_str = strtok(*buffer, DELIM);
 	int data = 0, i = 0;
 
 	instruction_t ops[] = {
@@ -36,7 +36,7 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 
 	if (strcmp(opcode_str, "push") == 0)
 	{
-		data = atoi(strtok(NULL, " "));
+		data = atoi(strtok(NULL, DELIM));
 		if (isdigit(data) != 0)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
@@ -49,7 +49,7 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 		}
 		else if (isdigit(data) == 0)
 			_push(stack, data);
-		printf("from push func, data var -> %d", data);
+		/*printf("from push func, data var -> %d", data);*/
 	}
 	for (; ops[i].opcode; i++)
 		if (!strcmp(opcode_str, ops[i].opcode))
