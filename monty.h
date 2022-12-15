@@ -55,6 +55,7 @@ void _swap(stack_tt **stack, unsigned int line_number);
 void _sub(stack_tt **stack, unsigned int line_number);
 void _div(stack_tt **stack, unsigned int line_number);
 void _mul(stack_tt **stack, unsigned int line_number);
+void _mod(stack_tt **stack, unsigned int line_number);
 void _push(stack_tt **stack, int data);
 
 #endif /*MONTY_H*/

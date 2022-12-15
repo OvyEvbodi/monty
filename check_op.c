@@ -33,6 +33,7 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 		{"div", _div},
 		{"mul", _mul},
 		{"swap", _swap},
+		{"mod", _mod},
 		{"nop", _nop},
 		{NULL, NULL}
 	};
