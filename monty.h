@@ -11,8 +11,16 @@
 #include <sys/stat.h>
 
 #define DELIM " \n"
+#define BUFFER glob_var.buffer
+#define MYFILE glob_var.file
 
-extern FILE *file;
+typedef struct glob_v
+{
+	char *buffer;
+	FILE *file;
+} glob_struct;
+
+extern glob_struct glob_var;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -57,5 +65,6 @@ void _div(stack_tt **stack, unsigned int line_number);
 void _mul(stack_tt **stack, unsigned int line_number);
 void _mod(stack_tt **stack, unsigned int line_number);
 void _push(stack_tt **stack, int data);
+int _atoi(char *s);
 
 #endif /*MONTY_H*/

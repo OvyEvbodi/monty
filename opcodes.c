@@ -15,13 +15,11 @@ void _pop(stack_tt **stack, unsigned int line_number)
 	if (!*stack)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
-		fclose(file);
+		fclose(MYFILE);
 		exit(EXIT_FAILURE);
 	}
-
 	else
 	{
-		/*printf("data -> %d\n", (*stack)->n);*/
 		temp = *stack;
 		if ((*stack)->next)
 			(*stack)->next->prev = NULL;
@@ -76,12 +74,12 @@ void _pint(stack_tt **stack, unsigned int line_number)
 {
 	if (!*stack)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		fclose(file);
-		/*how to free buffer??*/
+		fprintf(stderr, "L%d: can't pint, stack empty\n",
+		line_number);
+		fclose(MYFILE);
 		exit(EXIT_FAILURE);
 	}
-		printf("%d\n", (*stack)->n);
+	printf("%d\n", (*stack)->n);
 }
 
 /**
@@ -99,7 +97,8 @@ void _add(stack_tt **stack, unsigned int line_number)
 
 	if (!*stack || !(*stack)->next)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't add, stack too short\n",
+		line_number);
 		exit(EXIT_FAILURE);
 	}
 	temp = *stack;
@@ -123,7 +122,8 @@ void _mul(stack_tt **stack, unsigned int line_number)
 
 	if (!*stack || !(*stack)->next)
 	{
-		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't mul, stack too short\n",
+		line_number);
 		exit(EXIT_FAILURE);
 	}
 	temp = (*stack)->next;
