@@ -22,6 +22,12 @@ instruction_t ops[] = {                                               \
 		{"nop", _nop}, {NULL, NULL}                           \
 	}
 
+#define EXITFUNC                                                      \
+fclose(MYFILE);                                                       \
+free(BUFFER);                                                         \
+BUFFER = NULL;                                                        \
+exit(EXIT_FAILURE)                                                    \
+
 typedef struct glob_v
 {
 	char *buffer;

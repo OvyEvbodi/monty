@@ -14,7 +14,6 @@ glob_struct glob_var = {NULL, NULL};
 int main(int argc, char *argv[])
 {
 	int current_line = 1;
-	/*char *BUFFER = NULL;*/
 	size_t line_cap = BUFSIZ;
 	bool end_of_file = false;
 	stack_tt *stack = NULL;
