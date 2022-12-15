@@ -14,6 +14,14 @@
 #define BUFFER glob_var.buffer
 #define MYFILE glob_var.file
 
+#define OPERATIONS                                                    \
+instruction_t ops[] = {                                               \
+		{"pop", _pop}, {"pall", _pall}, {"pint", _pint},      \
+		{"add", _add}, {"sub", _sub}, {"div", _div},          \
+		{"mul", _mul}, {"swap", _swap}, {"mod", _mod},        \
+		{"nop", _nop}, {NULL, NULL}                           \
+	}
+
 typedef struct glob_v
 {
 	char *buffer;

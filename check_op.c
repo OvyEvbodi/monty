@@ -17,14 +17,7 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 	int data = 0, i = 0;
 	bool digits = true;
 
-	instruction_t ops[] = {
-		{"pop", _pop}, {"pall", _pall},
-		{"pint", _pint}, {"add", _add},
-		{"sub", _sub}, {"div", _div},
-		{"mul", _mul}, {"swap", _swap},
-		{"mod", _mod}, {"nop", _nop},
-		{NULL, NULL}
-	};
+	OPERATIONS;
 	if (strcmp(opcode_str, "push") == 0)
 	{
 		char_data = (strtok(NULL, DELIM));
@@ -46,6 +39,8 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 		data = atoi(char_data);
 		_push(stack, data);
 	}
+	if (opcode_str[0] == '#')
+		return (0);
 	for (i = 0; ops[i].opcode; i++)
 		if (!strcmp(opcode_str, ops[i].opcode))
 			ops[i].f(stack, line_number);
