@@ -26,9 +26,9 @@ void _swap(stack_tt **stack, unsigned int line_number)
 {
 	stack_tt *temp1 = NULL, *temp2 = NULL;
 
-	if (!(temp1->next) || !*stack)
+	if (!*stack || (!(*stack)->next))
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short", line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	temp1 = *stack;
@@ -54,7 +54,6 @@ void _pall(stack_tt **stack, unsigned int line_number)
 	stack_tt *temp;
 	
 	(void)line_number;
-	printf("testing pall\n");
 	temp = *stack;
 	while (temp)
 	{
@@ -74,26 +73,16 @@ void _pall(stack_tt **stack, unsigned int line_number)
 void _sub(stack_tt **stack, unsigned int line_number)
 {
 	stack_tt *temp = NULL;
-	ssize_t result = 0, i = 0;
+	ssize_t result = 0;
 
 	if (!*stack || !(*stack)->next)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short", line_number);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	temp = (*stack)->next;
 	result = temp->n;
-	for (; i < 2; i++)
-	{
-		temp = temp->prev;
-		result -= temp->n;
-	}
-	temp = temp->next;
-	temp->n = result;
-	/*updgrade*/
-	/*temp = (*stack)->next;
-	result = temp->n;
 	result -= temp->prev->n;
-	temp->n = result;*/
+	temp->n = result;
 	_pop(stack, line_number);
 }

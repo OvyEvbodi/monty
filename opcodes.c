@@ -76,7 +76,7 @@ void _pint(stack_tt **stack, unsigned int line_number)
 {
 	if (!*stack)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty", line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		fclose(file);
 		/*how to free buffer??*/
 		exit(EXIT_FAILURE);
@@ -94,22 +94,16 @@ void _pint(stack_tt **stack, unsigned int line_number)
 
 void _add(stack_tt **stack, unsigned int line_number)
 {
-	stack_tt *temp = *stack;
+	stack_tt *temp = NULL;
 	ssize_t result = 0;
-	short i = 0;
 
 	if (!*stack || !(*stack)->next)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short", line_number);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	for (; i < 2; i++)
-	{
-		result += temp->n;
-		temp = temp->next;
-	}
-	temp = temp->prev;
-	temp->n = result;
+	temp = *stack;
+	result = temp->n + temp->next->n;
+	temp->next->n = result;
 	_pop(stack, line_number);
-
 }

@@ -52,6 +52,7 @@ void _pint(stack_tt **stack, unsigned int line_number);
 void _add(stack_tt **stack, unsigned int line_number);
 void _nop(stack_tt **stack, unsigned int line_number);
 void _swap(stack_tt **stack, unsigned int line_number);
+void _sub(stack_tt **stack, unsigned int line_number);
 void _push(stack_tt **stack, int data);
 
 #endif /*MONTY_H*/
