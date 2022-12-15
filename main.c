@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
 	free(BUFFER);
 	BUFFER = NULL;
 	} while (!end_of_file);
+	free_stack(stack);
 	fclose(MYFILE);
 	return (0);
 }
