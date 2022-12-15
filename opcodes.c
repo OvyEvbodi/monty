@@ -43,7 +43,10 @@ void _push(stack_tt **stack, int data)
 	{
 		*stack = malloc(sizeof(stack_tt));
 		if (!*stack)
-			exit(EXIT_FAILURE);
+		{
+			free_stack(stack);
+			EXITFUNC;
+		}
 		(*stack)->prev = NULL;
 		(*stack)->n = data;
 		(*stack)->next = NULL;
@@ -52,7 +55,10 @@ void _push(stack_tt **stack, int data)
 	{
 		new = malloc(sizeof(stack_tt));
 		if (!*stack)
-			exit(EXIT_FAILURE);
+		{
+			free_stack(stack);
+			EXITFUNC;
+		}
 		new->n = data;
 		new->prev = NULL;
 		new->next = *stack;
