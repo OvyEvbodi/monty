@@ -31,6 +31,7 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 		{"add", _add},
 		{"sub", _sub},
 		{"div", _div},
+		{"mul", _mul},
 		{"swap", _swap},
 		{"nop", _nop},
 		{NULL, NULL}
