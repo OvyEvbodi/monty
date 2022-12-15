@@ -9,12 +9,13 @@
  * otherwise, 1
 */
 
+FILE *file = NULL;
 int main(int argc, char *argv[])
 {
 	int current_line = 1;
 	char *buffer = NULL;
 	size_t line_cap = BUFSIZ;
-	FILE *file = NULL;
+	
 	bool end_of_file = false;
 	stack_tt *stack = NULL;
 

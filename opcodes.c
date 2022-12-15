@@ -44,6 +44,8 @@ void _push(stack_tt **stack, int data)
 	if (!*stack)
 	{
 		*stack = malloc(sizeof(stack_tt));
+		if (!*stack)
+			exit(EXIT_FAILURE);
 		(*stack)->prev = NULL;
 		(*stack)->n = data;
 		(*stack)->next = NULL;
@@ -51,6 +53,8 @@ void _push(stack_tt **stack, int data)
 	else
 	{
 		new = malloc(sizeof(stack_tt));
+		if (!*stack)
+			exit(EXIT_FAILURE);
 		new->n = data;
 		new->prev = NULL;
 		new->next = *stack;
@@ -59,27 +63,14 @@ void _push(stack_tt **stack, int data)
 	}
 }
 
+
 /**
- * _pall - prints all the elements on a stack
+ * _pint - prints the top element of a stack
  * @line_number: the current line number
  * @stack:a pointer to the top of the stack
  *
  * Return: void
 */
-
-void _pall(stack_tt **stack, unsigned int line_number)
-{
-	stack_tt *temp;
-	
-	(void)line_number;
-	printf("testing pall\n");
-	temp = *stack;
-	while (temp)
-	{
-		printf("%d\n", temp->n);
-		temp = temp->next;
-	}
-}
 
 void _pint(stack_tt **stack, unsigned int line_number)
 {
@@ -91,4 +82,34 @@ void _pint(stack_tt **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 		printf("%d\n", (*stack)->n);
+}
+
+/**
+ * _add - adds the last 2 elements of a stack
+ * @line_number: the current line number
+ * @stack:a pointer to the top of the stack
+ *
+ * Return: void
+*/
+
+void _add(stack_tt **stack, unsigned int line_number)
+{
+	stack_tt *temp = *stack;
+	ssize_t result = 0;
+	short i = 0;
+
+	if (!(*stack)->next || !*stack)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short", line_number);
+		exit(EXIT_FAILURE);
+	}
+	for (; i < 2; i++)
+	{
+		result += temp->n;
+		temp = temp->next;
+	}
+	temp = temp->prev;
+	temp->n = result;
+	_pop(stack, line_number);
+
 }

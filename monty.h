@@ -11,7 +11,7 @@
 #include <sys/stat.h>
 
 extern FILE *file;
-FILE *file;
+/*FILE *file;*/
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -47,6 +47,9 @@ int check_op(stack_tt **stack, char **buffer, int line_number);
 void _pop(stack_tt **stack, unsigned int line_number);
 void _pall(stack_tt **stack, unsigned int line_number);
 void _pint(stack_tt **stack, unsigned int line_number);
+void _add(stack_tt **stack, unsigned int line_number);
+void _nop(stack_tt **stack, unsigned int line_number);
+void _swap(stack_tt **stack, unsigned int line_number);
 void _push(stack_tt **stack, int data);
 
 #endif /*MONTY_H*/

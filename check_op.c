@@ -28,6 +28,9 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 		{"pop", _pop},
 		{"pall", _pall},
 		{"pint", _pint},
+		{"add", _add},
+		{"swap", _swap},
+		{"nop", _nop},
 		{NULL, NULL}
 	};
 
