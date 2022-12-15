@@ -52,7 +52,7 @@ void _swap(stack_tt **stack, unsigned int line_number)
 void _pall(stack_tt **stack, unsigned int line_number)
 {
 	stack_tt *temp;
-	
+
 	(void)line_number;
 	temp = *stack;
 	while (temp)
