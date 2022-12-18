@@ -34,6 +34,7 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 			free_stack(stack);
 			EXITFUNC;
 		}
+		if (char_data)
 		data = atoi(char_data);
 		_push(stack, data);
 	}
