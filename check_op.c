@@ -35,8 +35,10 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 			EXITFUNC;
 		}
 		if (char_data)
-		data = atoi(char_data);
-		_push(stack, data);
+		{
+			data = atoi(char_data);
+			_push(stack, data);
+		}
 	}
 	if (opcode_str[0] == '#')
 		return (0);
