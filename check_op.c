@@ -21,7 +21,7 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 	if (strcmp(opcode_str, "push") == 0)
 	{
 		char_data = (strtok(NULL, DELIM));
-		for (i = 0; char_data[i]; i++)
+		for (i = 0; char_data && char_data[i]; i++)
 			if (isdigit(char_data[i]) == 0)
 			{
 				digits = false;
