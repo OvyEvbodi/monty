@@ -45,12 +45,6 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 	for (i = 0; ops[i].opcode; i++)
 		if (!strcmp(opcode_str, ops[i].opcode))
 			ops[i].f(stack, line_number);
-        else
-            {
-                fprintf(stderr, "L%d: unknown instruction %s\n",
-                line_number, opcode_str);
-                free_stack(stack);
-                EXITFUNC;
-            }
 	return (0);
+    
 }
