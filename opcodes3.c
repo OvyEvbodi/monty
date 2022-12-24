@@ -34,7 +34,7 @@ void _mod(stack_tt **stack, unsigned int line_number)
 }
 
 /**
- * free_stack_tt - frees a stack_tt list
+ * free_stack - frees a stack_tt list
  *
  * @stack: a pointer to the head node
  *
@@ -44,6 +44,7 @@ void _mod(stack_tt **stack, unsigned int line_number)
 void free_stack(stack_tt **stack)
 {
 	stack_tt *temp = *stack;
+
 	if (*stack)
 	{
 		while (temp->next)
