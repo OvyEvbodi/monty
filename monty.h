@@ -19,7 +19,7 @@ instruction_t ops[] = {                                               \
 		{"pop", _pop}, {"pall", _pall}, {"pint", _pint},      \
 		{"add", _add}, {"sub", _sub}, {"div", _div},          \
 		{"mul", _mul}, {"swap", _swap}, {"mod", _mod},        \
-		{"nop", _nop}, {NULL, NULL}                           \
+		{"nop", _nop}, {"pchar", _pchar}, {NULL, NULL}                           \
 	}
 
 #define EXITFUNC                                                      \
@@ -79,6 +79,7 @@ void _sub(stack_tt **stack, unsigned int line_number);
 void _div(stack_tt **stack, unsigned int line_number);
 void _mul(stack_tt **stack, unsigned int line_number);
 void _mod(stack_tt **stack, unsigned int line_number);
+void _pchar(stack_tt **stack, unsigned int line_number);
 
 void _push(stack_tt **stack, int data);
 void free_stack(stack_tt **stack);

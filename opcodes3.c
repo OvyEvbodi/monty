@@ -34,7 +34,7 @@ void _mod(stack_tt **stack, unsigned int line_number)
 }
 
 /**
- * free_stack - frees a stack_tt list
+ * free_stack - frees a stack list
  *
  * @stack: a pointer to the head node
  *
@@ -55,4 +55,24 @@ void free_stack(stack_tt **stack)
 		free(temp);
 		temp = NULL;
 	}
+}
+
+/**
+ * _pchar - prints the ASCII value of the top element of a stack
+ * @line_number: the current line number
+ * @stack:a pointer to the top of the stack
+ *
+ * Return: void
+*/
+
+void _pchar(stack_tt **stack, unsigned int line_number)
+{
+	if (!*stack)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n",
+		line_number);
+		free_stack(stack);
+		EXITFUNC;
+	}
+	printf("%c\n", (*stack)->n);
 }
