@@ -49,7 +49,7 @@ void free_stack(stack_tt **stack)
 		while (temp->next)
 		{
 			temp = temp->next;
-			free (temp->prev);
+			free(temp->prev);
 		}
 		free(temp);
 		temp = NULL;

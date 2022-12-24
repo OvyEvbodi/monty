@@ -54,7 +54,7 @@ void _push(stack_tt **stack, int data)
 	else
 	{
 		new = malloc(sizeof(stack_tt));
-		if (!*stack)
+		if (!new)
 		{
 			free_stack(stack);
 			EXITFUNC;
