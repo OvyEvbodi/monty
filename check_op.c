@@ -40,17 +40,27 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 			_push(stack, data);
 		}
 	}
-	if (opcode_str[0] == '#')
+	else if (opcode_str[0] == '#')
 		return (0);
-	for (i = 0; ops[i].opcode; i++)
-		if (!strcmp(opcode_str, ops[i].opcode))
-			ops[i].f(stack, line_number);
-    if (!ops[i].opcode)
+	
+    /*if (!ops[i].opcode)*/
+    else
     {
-        fprintf(stderr, "L%d: unknown instruction %s\n",
-        line_number, opcode_str);
-        free_stack(stack);
-        EXITFUNC;
+        for (i = 0; ops[i].opcode; i++)
+        {
+            if (!strcmp(opcode_str, ops[i].opcode))
+            {
+                ops[i].f(stack, line_number);
+                return (0);
+            }
+        }
+        if (!ops[i].opcode)
+        {
+            fprintf(stderr, "L%d: unknown instruction %s\n",
+            line_number, opcode_str);
+            free_stack(stack);
+            EXITFUNC;
+        }
     }
 	return (0);
 
