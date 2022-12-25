@@ -13,13 +13,14 @@
 #define DELIM " \n\t"
 #define BUFFER glob_var.buffer
 #define MYFILE glob_var.file
+#define PRINTABLE_DATA temp && temp->n != 0 && temp->n > 32 && temp->n < 127
 
 #define OPERATIONS                                                    \
 instruction_t ops[] = {                                               \
 		{"pop", _pop}, {"pall", _pall}, {"pint", _pint},      \
 		{"add", _add}, {"sub", _sub}, {"div", _div},          \
 		{"mul", _mul}, {"swap", _swap}, {"mod", _mod},        \
-		{"nop", _nop}, {"pchar", _pchar}, {NULL, NULL}                           \
+		{"nop", _nop}, {"pchar", _pchar}, {"pstr", _pstr}, {NULL, NULL}                           \
 	}
 
 #define EXITFUNC                                                      \
@@ -80,6 +81,7 @@ void _div(stack_tt **stack, unsigned int line_number);
 void _mul(stack_tt **stack, unsigned int line_number);
 void _mod(stack_tt **stack, unsigned int line_number);
 void _pchar(stack_tt **stack, unsigned int line_number);
+void _pstr(stack_tt **stack, unsigned int line_number);
 
 void _push(stack_tt **stack, int data);
 void free_stack(stack_tt **stack);
