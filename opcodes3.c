@@ -97,9 +97,8 @@ void _pstr(stack_tt **stack, unsigned int line_number)
 		EXITFUNC;
 	}
     temp = *stack;
-    while (temp && temp->n != 0 && (temp->n >= 32 && temp->n <= 127))
+    while (PRINTABLE_DATA)
     {
-        /* if () && ) */
         putchar(temp->n);
         temp = temp->next;
     }
