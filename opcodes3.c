@@ -119,17 +119,15 @@ void _rotr(stack_tt **stack, unsigned int line_number)
     int data = 0;
     (void)line_number;
 
-    /*if (*stack)
+    if (*stack)
     {
-        free_stack(stack);
-        EXITFUNC;
-    }*/
-    temp = *stack;
-    while (temp->next)
-        temp = temp->next;
-    data = temp->n;
-    temp->n = (*stack)->n;
-    (*stack)->n = data;
+        temp = *stack;
+        while (temp->next)
+            temp = temp->next;
+        data = temp->n;
+        temp->n = (*stack)->n;
+        (*stack)->n = data;
+    }
 }
 
 /**
@@ -143,12 +141,19 @@ void _rotr(stack_tt **stack, unsigned int line_number)
 void _rotl(stack_tt **stack, unsigned int line_number)
 {
     stack_tt *temp = NULL;
+    stack_tt *prev_temp = NULL;
     (void)line_number;
 
-    temp = *stack;
-    while (temp->next)
-        temp = temp->next;
-    temp->next = *stack;
-    temp->next = NULL;
-    (*stack)->next->prev = NULL;
+    if (*stack)
+    {
+        temp = *stack;
+        while (temp->next)
+            temp = temp->next;
+        temp->next = *stack;
+        temp->next->prev = temp;
+        prev_temp = (*stack)->next;
+        temp->next->next = NULL;
+        *stack = prev_temp;
+        (*stack)->prev = NULL;
+    }
 }
