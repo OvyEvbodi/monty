@@ -1,6 +1,6 @@
 #include "monty.h"
 
-glob_struct glob_var = {NULL, NULL};
+glob_struct glob_var = {NULL, NULL, STACK};
 
 /**
  * main - Entry point to program

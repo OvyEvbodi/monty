@@ -13,10 +13,13 @@
 #define DELIM " \n\t"
 #define BUFFER glob_var.buffer
 #define MYFILE glob_var.file
+#define MODE glob_var.mode
 #define PRINTABLE_DATA temp && temp->n != 0 && temp->n > 32 && temp->n < 127
+#define STACK 1
+#define QUEUE 0
 
 #define OPERATIONS                                                     \
-instruction_t ops[] = {                                                \
+instruction_t ops[] = {{"stack", _mode}, {"queue", _mode},             \
 		{"pop", _pop}, {"pall", _pall}, {"pint", _pint},               \
 		{"add", _add}, {"sub", _sub}, {"div", _div}, {"rotr", _rotr},  \
 		{"mul", _mul}, {"swap", _swap}, {"mod", _mod}, {"rotl", _rotl},\
@@ -33,6 +36,7 @@ typedef struct glob_v
 {
 	char *buffer;
 	FILE *file;
+    unsigned short mode:1;
 } glob_struct;
 
 extern glob_struct glob_var;
@@ -84,6 +88,7 @@ void _pchar(stack_tt **stack, unsigned int line_number);
 void _pstr(stack_tt **stack, unsigned int line_number);
 void _rotl(stack_tt **stack, unsigned int line_number);
 void _rotr(stack_tt **stack, unsigned int line_number);
+void _mode(stack_tt **stack, unsigned int line_number);
 
 void _push(stack_tt **stack, int data);
 void free_stack(stack_tt **stack);

@@ -42,8 +42,6 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 	}
 	else if (opcode_str[0] == '#')
 		return (0);
-	
-    /*if (!ops[i].opcode)*/
     else
     {
         for (i = 0; ops[i].opcode; i++)
@@ -63,5 +61,4 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
         }
     }
 	return (0);
-
 }

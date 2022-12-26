@@ -37,7 +37,7 @@ void _pop(stack_tt **stack, unsigned int line_number)
 */
 void _push(stack_tt **stack, int data)
 {
-	stack_tt *new = NULL;
+	stack_tt *new = NULL, *temp = NULL;
 
 	if (!*stack)
 	{
@@ -59,11 +59,23 @@ void _push(stack_tt **stack, int data)
 			free_stack(stack);
 			EXITFUNC;
 		}
-		new->n = data;
-		new->prev = NULL;
-		new->next = *stack;
-		(*stack)->prev = new;
-		*stack = new;
+        new->n = data;
+        if (MODE == STACK)
+        {
+            new->prev = NULL;
+            new->next = *stack;
+            (*stack)->prev = new;
+            *stack = new;
+        }
+        else if (MODE == QUEUE)
+        {
+            temp = *stack;
+            while (temp->next)
+                temp = temp->next;
+            new->next = NULL;
+            new->prev = temp;
+            temp->next = new;
+        }
 	}
 }
 
