@@ -96,14 +96,11 @@ void _pstr(stack_tt **stack, unsigned int line_number)
 		free_stack(stack);
 		EXITFUNC;
 	}
-    else
+    temp = *stack;
+    while (PRINTABLE_DATA)
     {
-        temp = *stack;
-        while (PRINTABLE_DATA)
-        {
-            putchar(temp->n);
-            temp = temp->next;
-        }
-        putchar('\n');
+        putchar(temp->n);
+        temp = temp->next;
     }
+    putchar('\n');  
 }
