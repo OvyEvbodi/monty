@@ -104,3 +104,51 @@ void _pstr(stack_tt **stack, unsigned int line_number)
     }
     putchar('\n');  
 }
+
+/**
+ * _rotr -  rotates the stack to the bottom
+ * @line_number: the current line number
+ * @stack:a pointer to the top of the stack
+ *
+ * Return: void
+*/
+
+void _rotr(stack_tt **stack, unsigned int line_number)
+{
+    stack_tt *temp = NULL;
+    int data = 0;
+    (void)line_number;
+
+    /*if (*stack)
+    {
+        free_stack(stack);
+        EXITFUNC;
+    }*/
+    temp = *stack;
+    while (temp->next)
+        temp = temp->next;
+    data = temp->n;
+    temp->n = (*stack)->n;
+    (*stack)->n = data;
+}
+
+/**
+ * _rotl - rotates the stack to the top
+ * @line_number: the current line number
+ * @stack:a pointer to the top of the stack
+ *
+ * Return: void
+*/
+
+void _rotl(stack_tt **stack, unsigned int line_number)
+{
+    stack_tt *temp = NULL;
+    (void)line_number;
+
+    temp = *stack;
+    while (temp->next)
+        temp = temp->next;
+    temp->next = *stack;
+    temp->next = NULL;
+    (*stack)->next->prev = NULL;
+}
