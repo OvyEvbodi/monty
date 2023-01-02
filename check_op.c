@@ -40,7 +40,9 @@ int check_op(stack_tt **stack, char **buffer, int line_number)
 			_push(stack, data);
 		}
 	}
-	else if (opcode_str[0] == '#')
+	else if (!opcode_str)
+		return (0);
+    else if (opcode_str[0] == '#')
 		return (0);
     else
     {

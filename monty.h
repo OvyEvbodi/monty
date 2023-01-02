@@ -36,7 +36,7 @@ typedef struct glob_v
 {
 	char *buffer;
 	FILE *file;
-    unsigned short mode:1;
+    unsigned short mode;
 } glob_struct;
 
 extern glob_struct glob_var;
