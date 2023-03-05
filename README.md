@@ -97,3 +97,8 @@ line 2: ``push 3``
 line 3: ``queue``
 line 4: ``push 4``
 ***
+#### Authors
+[Ovy Evbodi](https://github.com/OvyEvbodi)
+***
+#### License
+This project is licensed under the MIT License.See [LICENSE](https://github.com/OvyEvbodi/monty/blob/master/LICENSE) for full text.
