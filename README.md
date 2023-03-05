@@ -17,7 +17,7 @@ Example: ``pint in reverse``
 ***
 #### Installation
 To build this progam:
-- Clone this directory 
+- Clone this repository 
 ```shell
 git clone git@github.com:OvyEvbodi/monty.git
 ````
