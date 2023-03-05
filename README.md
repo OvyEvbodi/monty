@@ -5,7 +5,7 @@ Monty 0.98 is a scripting language that is first compiled into Monty byte codes 
 This project implements the stack and queue data structures, via a toggle feature, to interpret  operations, according to the user's preference.
 ##### Monty byte code files
 Files containing Monty byte codes usually have the .m extension.<br>
-Example: ``ovy.m``
+Example: ``ovy.m``<br>
 Most of the industry uses this standard but it is not required by the specification of the language. There is not more than one instruction per line.<br>
 There can be any number of spaces before or after the opcode and its argument:<br>
 Example: ``push 68``<br>
@@ -22,6 +22,27 @@ To build this progam, run this [Makefile] ()
 The monty program is invoked by calling its name, and passing a monty bytecode file as an argument.
 Example: ``./monty <file>``
 <br>
+
+**The stack opcode**
+
+- The opcode stack sets the format of the data to a stack (LIFO). This is the default behavior of the program.
+
+Usage: stack<br>
+**The queue opcode**
+
+- The opcode queue sets the format of the data to a queue (FIFO).
+
+Usage: queue
+<br>
+When switching between modes:<br>
+
+- The top of the stack becomes the front of the queue
+- The front of the queue becomes the top of the stack<br>
+
+###### Comments
+When the first non-space character of a line is `#`, that line is treated as a comment.
+
+###### Errors
 The monty program runs the bytecodes line by line and stop if either:
 it executed properly every line of the file
 it finds an error in the file
@@ -44,7 +65,22 @@ Below, are the opodes for all valid operations that can be interpreted, and perf
 | `sub`      | Replaces the two next integers by the result of their subtraction|
 | `mul`      | Replaces the two next integers by the result of their multiplication|
 | `div`      | Replaces the two next integers by the result of their division|
+| `swap`     | Swaps the top two elements of the stack/queue
+| `nop`      | Does nothing
+| `mod`      | Computes the rest of the division of the second top element of the stack/queue by the top element of the stack'queue
+| `pchar`    | Prints the char at the top of the stack/queue
+| `pstr`     | Prints the string starting at the top of the stack/queue
+| `rotl`     | The top element of the stack/queue becomes the last one, and the second top element of the stack/queue becomes the first one
+| `rotr`     | The last element of the stack/queue becomes the top element of the stack/queue
+| `stack`    | Switches to a stack data structure (LIFO)
+| `queue`    | Switches to a queue data structure (FIFO)
 
+**Notes**
+For pstr:
+The string stops when either:
+- The stack is over
+- The value of the element is 0
+- The value of the element is not in the ascii table
 ***
 ##### Examples
 - To push an integer ``5`` onto the stack/queue, the following line should be included in the ``.m`` file:<br>
@@ -56,5 +92,4 @@ line 1: ``stack``
 line 2: ``push 3``
 line 3: ``queue``
 line 4: ``push 4``
-
-
+***
