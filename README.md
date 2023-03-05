@@ -21,7 +21,7 @@ To build this progam:
 ```shell
 git clone git@github.com:OvyEvbodi/monty.git
 ````
-Run this [Makefile] (https://github.com/OvyEvbodi/monty/blob/master/Makefile)
+- Run this [Makefile](https://github.com/OvyEvbodi/monty/blob/master/Makefile)
 
 ##### Usage
 The monty program is invoked by calling its name, and passing a monty bytecode file as an argument.
