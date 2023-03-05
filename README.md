@@ -7,10 +7,10 @@ This project implements the stack and queue data structures, via a toggle featur
 Files containing Monty byte codes usually have the .m extension.<br>
 Example: ``ovy.m``
 Most of the industry uses this standard but it is not required by the specification of the language. There is not more than one instruction per line.<br>
-There can be any number of spaces before or after the opcode and its argument:
-Example: ``push 68``
-Example: ``     pop``
-Monty byte code files can contain blank lines, be empty, or consist of only spaces. Any additional text after the opcode or its required argument is not taken into account:
+There can be any number of spaces before or after the opcode and its argument:<br>
+Example: ``push 68``<br>
+Example: ``     pop``<br>
+Monty byte code files can contain blank lines, be empty, or consist of only spaces. Any additional text after the opcode or its required argument is not taken into account:<br>
 Example: ``pint in reverse``
 ***
 
