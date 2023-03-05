@@ -17,9 +17,9 @@ Example: ``pint in reverse``
 ***
 #### Installation
 To build this progam:
-- Clone this repository 
+- Clone this repository, and navigate into it
 ```shell
-git clone git@github.com:OvyEvbodi/monty.git
+git clone git@github.com:OvyEvbodi/monty.git && cd monty
 ````
 - Run this [Makefile](https://github.com/OvyEvbodi/monty/blob/master/Makefile)
 
