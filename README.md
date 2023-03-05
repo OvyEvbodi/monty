@@ -16,7 +16,12 @@ Example: ``pint in reverse``
 
 ***
 #### Installation
-To build this progam, run this [Makefile] ()
+To build this progam:
+- Clone this directory 
+```shell
+git clone git@github.com:OvyEvbodi/monty.git
+````
+Run this [Makefile] (https://github.com/OvyEvbodi/monty/blob/master/Makefile)
 
 ##### Usage
 The monty program is invoked by calling its name, and passing a monty bytecode file as an argument.
@@ -24,16 +29,15 @@ Example: ``./monty <file>``
 <br>
 
 **The stack opcode**
-
 - The opcode stack sets the format of the data to a stack (LIFO). This is the default behavior of the program.
 
-Usage: stack<br>
+`Usage: stack`<br>
+<br>
 **The queue opcode**
-
 - The opcode queue sets the format of the data to a queue (FIFO).
 
-Usage: queue
-<br>
+`Usage: queue`
+<br><br>
 When switching between modes:<br>
 
 - The top of the stack becomes the front of the queue
